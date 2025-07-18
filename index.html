@@ -23,7 +23,7 @@
             color: #fff;
             padding: 2rem 0;
             text-align: center;
-            border-radius: 8px
+            border-radius: 8px;
         }
         .box {
             margin: 2rem;
@@ -31,14 +31,13 @@
             background: #f9f9f9;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            
         }
         h1 {
             margin: 0 0 0.5rem 0;
             font-size: 2.5rem;
             letter-spacing: 2px;
             text-align: left;
-            padding-left: 2rem;"
+            padding-left: 2rem;
         }
         .music-embed {
             background: #dadada;
@@ -55,6 +54,20 @@
         }
         a:hover {
             text-decoration: underline;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%; /* Make the container wider on smaller screens */
+            }
+            h1 {
+                font-size: 2rem; /* Adjust font size for smaller screens */
+            }
+            .box {
+                margin: 1rem; /* Reduce margin for smaller screens */
+                padding: 1.5rem; /* Adjust padding for smaller screens */
+            }
         }
     </style>
 </head>
