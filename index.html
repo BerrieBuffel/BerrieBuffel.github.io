@@ -11,9 +11,11 @@
             margin: 0;
             padding: 0;
             color: #222;
-            display: flex;
-            justify-content: center;
+            /* Remove flex centering for better mobile support */
+            /* display: flex;
+            justify-content: center; */
             position: relative;
+            box-sizing: border-box;
         }
 
         body::before {
@@ -29,8 +31,12 @@
         }
 
         .container {
-            width: 60%;
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
             z-index: 1;
+            box-sizing: border-box;
+            padding: 0 1rem;
         }
 
         header {
@@ -39,6 +45,7 @@
             padding: 2rem 0;
             text-align: center;
             border-radius: 8px;
+            position: relative; /* Added for button positioning */
         }
 
         .box {
@@ -88,46 +95,80 @@
             text-decoration: underline;
         }
         
+        #darkModeToggle {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            background: #fff;
+            color: #6c3d68;
+            border: none;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 2;
+        }
 
-        /* General media query for Android devices */
-        @media screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+        /* General media query for Android devices and small screens */
+        @media screen and (max-width: 768px) {
             .container {
-                width: 90%; /* Adjust container width for Android devices */
+                max-width: 100%;
+                width: 100%;
+                padding: 0 0.5rem;
             }
 
             h1 {
-                font-size: 2rem; /* Adjust font size for smaller screens */
+                font-size: 2rem;
             }
 
             .box {
-                width: 100%; /* Make the box full width */
-                margin: 1rem 0;
-                padding: 1.5rem;
+                width: 90%;
             }
         }
 
-        /* Specific media query for Android devices with high pixel density */
-        @media screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
-            .container {
-                width: 95%; /* Slightly wider for high-density screens */
-            }
-
-            h1 {
-                font-size: 1.8rem; /* Adjust font size */
-            }
-
-            .box {
-                padding: 1.2rem; /* Adjust padding */
-            }
+        /* Dark mode styles */
+        body.dark-mode {
+            background: #181818;
+            color: #f3f3f3;
+        }
+        body.dark-mode .container {
+            background: transparent;
+        }
+        body.dark-mode header {
+            background: #3a1f36;
+            color: #fff;
+        }
+        body.dark-mode .box {
+            background: #232323;
+            color: #f3f3f3;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+        body.dark-mode .music-embed {
+            background: #181818;
+            color: #f3f3f3;
+        }
+        body.dark-mode a {
+            color: #e0aaff;
+        }
+        body.dark-mode #darkModeToggle {
+            background: #232323;
+            color: #e0aaff;
+            border: 1px solid #e0aaff;
+        }
+        body.dark-mode footer img {
+            filter: brightness(0) invert(1);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <header style="position: relative;">
             <h1>
                 Berrie Buffel
             </h1>
+            <button id="darkModeToggle" aria-label="Toggle dark mode">
+                🌙 Dark Mode
+            </button>
             <p style="padding-left: 2rem; text-align: left;">
                 Artist
             </p>
@@ -148,18 +189,67 @@
                 </p>
             </section>
         </div>
-        <div class="box">
-            <section class="contact">
-                <h2>Contact</h2>
-                <p>
-                    Email: <a href="mailto:berrie.buffel@outlook.com">berrie.buffel@outlook.com</a>
-                    <br>
-                    Youtube: <a href="https://www.youtube.com/@berriebuffel">@BerrieBuffel</a>
-                    <br>
-                    TikTok: <a href="https://www.tiktok.com/@berriebuffel">@BerrieBuffel</a>
-                </p>
-            </section>
-        </div>
     </div>
+    <footer style="width:100%; background:transparent; border:none; margin:0; padding:0;">
+        <div class="container" style="padding:0;">
+            <div class="box" style="margin-bottom:0; margin-top:2rem;">
+                <section class="contact">
+                    <h2>Contact</h2>
+                    <p>
+                        <a href="mailto:berrie.buffel@outlook.com" target="_blank" aria-label="Email" style="vertical-align:middle;">
+                            <img src="email.svg" alt="Email" style="height:1.5em; width:auto; vertical-align:middle; margin-right:0.3em;">
+                        </a>
+                        <a href="https://www.youtube.com/@berriebuffel" target="_blank" aria-label="YouTube" style="vertical-align:middle;">
+                            <img src="youtube.svg" alt="YouTube" style="height:1.5em; width:auto; vertical-align:middle; margin-right:0.3em;">
+                        </a>
+                        <a href="https://www.tiktok.com/@berriebuffel" target="_blank" aria-label="TikTok" style="vertical-align:middle;">
+                            <img src="tiktok.svg" alt="TikTok" style="height:1.5em; width:auto; vertical-align:middle; margin-right:0.3em;">
+                        </a>
+                    </p>
+                </section>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Dark mode toggle logic
+        const toggleBtn = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Load preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            body.classList.add('dark-mode');
+            toggleBtn.textContent = '☀️ Light Mode';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            toggleBtn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+            localStorage.setItem('darkMode', isDark);
+        });
+    </script>
+    <style>
+        footer {
+            width: 100%;
+            background: transparent;
+            border: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        @media (min-height: 600px) {
+            body {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+            .container {
+                flex: 1 0 auto;
+            }
+            footer {
+                flex-shrink: 0;
+            }
+        }
+    </style>
 </body>
 </html>
