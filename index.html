@@ -158,6 +158,19 @@
         body.dark-mode footer img {
             filter: brightness(0) invert(1);
         }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            background: #4a2c4f; /* Add a background color */
+            padding: 0.5rem 1rem; /* Add padding for button-like appearance */
+            border-radius: 8px; /* Round the corners */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        nav a:hover {
+            background: #6c3d68; /* Change background color on hover */
+            text-decoration: none; /* Ensure no underline on hover */
+        }
     </style>
 </head>
 <body>
@@ -172,6 +185,10 @@
             <p style="padding-left: 2rem; text-align: left;">
                 Artist
             </p>
+            <nav style="margin-top: 1rem; text-align: center;">
+                <a href="index.html" style="margin-right: 1rem; color: #fff; text-decoration: none;">Home</a>
+                <a href="gallery.html" style="color: #fff; text-decoration: none;">Gallery</a>
+            </nav>
         </header>
         <div class="box">
             <section>
@@ -197,13 +214,13 @@
                     <h2>Contact</h2>
                     <p>
                         <a href="mailto:berrie.buffel@outlook.com" target="_blank" aria-label="Email" style="vertical-align:middle;">
-                            <img src="email.svg" alt="Email" style="height:1.5em; width:auto; vertical-align:middle; margin-right:0.3em;">
+                            <img src="Icons/email.svg" alt="Email" style="height:1.5em; width:auto; vertical-align:middle; margin-right:0.3em;">
                         </a>
                         <a href="https://www.youtube.com/@berriebuffel" target="_blank" aria-label="YouTube" style="vertical-align:middle;">
-                            <img src="youtube.svg" alt="YouTube" style="height:1.5em; width:auto; vertical-align:middle; margin-right:0.3em;">
+                            <img src="Icons/youtube.svg" alt="YouTube" style="height:1.5em; width:auto; vertical-align:middle; margin-right:0.3em;">
                         </a>
                         <a href="https://www.tiktok.com/@berriebuffel" target="_blank" aria-label="TikTok" style="vertical-align:middle;">
-                            <img src="tiktok.svg" alt="TikTok" style="height:1.5em; width:auto; vertical-align:middle; margin-right:0.3em;">
+                            <img src="Icons/tiktok.svg" alt="TikTok" style="height:1.5em; width:auto; vertical-align:middle; margin-right:0.3em;">
                         </a>
                     </p>
                 </section>
