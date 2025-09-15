@@ -171,6 +171,17 @@
             background: #6c3d68; /* Change background color on hover */
             text-decoration: none; /* Ensure no underline on hover */
         }
+        /* Prevent text selection and force arrow cursor on non-interactive text */
+        html, body {
+            cursor: default;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        /* Keep pointer for interactive elements */
+        a, button {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
