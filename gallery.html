@@ -331,6 +331,40 @@
             transform: scale(1.05);
         }
     </style>
+    <style>
+        /* Dark mode styles */
+        body.dark-mode {
+            background: #181818;
+            color: #f3f3f3;
+        }
+        body.dark-mode .container {
+            background: transparent;
+        }
+        body.dark-mode header {
+            background: #3a1f36;
+            color: #fff;
+        }
+        body.dark-mode .box {
+            background: #232323;
+            color: #f3f3f3;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+        body.dark-mode .music-embed {
+            background: #181818;
+            color: #f3f3f3;
+        }
+        body.dark-mode a {
+            color: #e0aaff;
+        }
+        body.dark-mode #darkModeToggle {
+            background: #232323;
+            color: #e0aaff;
+            border: 1px solid #e0aaff;
+        }
+        body.dark-mode footer img {
+            filter: brightness(0) invert(1);
+        }
+    </style>
 </head>
 <body>
     <div class="container">

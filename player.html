@@ -109,29 +109,38 @@
         /* Dark mode styles */
         body.dark-mode {
             background: #181818;
-            color: #eee;
+            color: #f3f3f3;
         }
-        
+        body.dark-mode .container {
+            background: transparent;
+        }
         body.dark-mode header {
             background: #3a1f36;
+            color: #fff;
         }
-        
-        body.dark-mode nav a {
-            background: #2d1b2e;
+        body.dark-mode .box {
+            background: #232323;
+            color: #f3f3f3;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
-        
-        body.dark-mode nav a:hover {
-            background: #4a2c4f;
+        body.dark-mode .music-embed {
+            background: #181818;
+            color: #f3f3f3;
         }
-        
+        body.dark-mode a {
+            color: #fff;
+        }
         body.dark-mode #darkModeToggle {
             background: #232323;
             color: #e0aaff;
             border: 1px solid #e0aaff;
         }
-        
         body.dark-mode .track {
             background: #232323;
+            color: #f3f3f3;
+        }
+        body.dark-mode footer img {
+            filter: brightness(0) invert(1);
         }
     </style>
 </head>
@@ -155,7 +164,12 @@
         <div class="tracks-container">
             <!-- Add your tracks here -->
             <div class="track">
-                <iframe src="https://open.spotify.com/embed/playlist/2JbOKFC6R1Z150Pc6b7Ds8?si=38CKmUeVQZmg27Ik3OdSOw&pi=bzqpnK7GR2C2D" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <!--
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2JbOKFC6R1Z150Pc6b7Ds8?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                -->
+                <p style="padding-left: 2rem;">
+                    This feature is being worked on.
+                </p>
             </div>
             <!-- Add more tracks as needed -->
         </div>
