@@ -458,12 +458,19 @@ footer {
         padding: 15px 20px;
     }
 
+    /* Reduce padding on mobile for better fit */
+    .hero-content {
+        padding: 30px 20px;
+    }
+
     /* Center and stack buttons on mobile */
     .cta-group {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 15px;
+        margin: 0;
+        padding: 0;
     }
 
     .btn-spotify {
@@ -473,5 +480,6 @@ footer {
     .btn {
         width: 100%;
         max-width: 250px;
+        text-align: center;
     }
 }
